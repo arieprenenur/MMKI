@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MMKI-KD Prepare Control</title>
+  
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="apple-touch-icon" href="icon-192.png">
+
+  <style>
+    /* Hilangkan margin agar iframe full screen seperti aplikasi native */
+    body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #0f172a; }
+    iframe { width: 100%; height: 100%; border: none; display: block; }
+  </style>
+</head>
+<body>
+
+  <iframe src="https://script.google.com/macros/s/AKfycbzAsY3IMWiEgCkyWPRqfSMRjE4O2uK0VnNQOd_Lf5-pGBFVTaOfSq6GxUXozUx01H0w/exec" allow="camera; microphone; fullscreen"></iframe>
+
+  <script>
+    // Daftarkan Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+          .then(reg => console.log('PWA Service Worker Aktif!'))
+          .catch(err => console.log('PWA Gagal:', err));
+      });
+    }
+  </script>
+</body>
+</html>
